@@ -1,0 +1,34 @@
+[
+	{
+		"nama": "Ferdinan",
+		"umur": 25,
+		"alamat":{
+			"jalan": "Jl.Cipto",
+			"kota": "Jakarta",
+            "provinsi": "DKI Jakarta"
+	    },
+        "hobi":["Menulis", "Makan"]
+    },
+
+    {
+		"nama": "Alu",
+		"umur": 12,
+		"alamat":{
+			"jalan": "Jl.Sayangan",
+			"kota": "Palembang",
+            "provinsi": "Sumatera Selatan"
+	    },
+        "hobi":["Membaca", "Tidur"]
+    },
+
+    {
+		"nama": "Rico",
+		"umur": 8,
+		"alamat":{
+			"jalan": "Jl.Segaran",
+			"kota": "Palembang",
+            "provinsi": "Sumatera Selatan"
+	    },
+        "hobi":["Gaming", "Jualan"]
+    }
+]
