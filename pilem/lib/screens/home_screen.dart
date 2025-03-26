@@ -17,6 +17,13 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Movie> _trendingMovies = [];
   List<Movie> _popularMovies = [];
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadMovies();
+  }
+
   Future<void> _loadMovies() async {
     final List<Map<String, dynamic>> allMoviesData =
         await _apiService.getAllMovies();
@@ -34,35 +41,28 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _loadMovies();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Film"),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildMovieList("All Movies", _allMovies),
-            _buildMovieList("Trending Movies", _trendingMovies),
-            _buildMovieList("Popular Movies", _popularMovies)
-          ],
+        appBar: AppBar(
+          title: const Text('Pilem'),
         ),
-      ),
-    );
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildMovieList('All Movies', _allMovies),
+              _buildMovieList('Trending Movies', _trendingMovies),
+              _buildMovieList('Popular Movies', _popularMovies),
+            ],
+          ),
+        ));
   }
 
   Widget _buildMovieList(String title, List<Movie> movies) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        //Judul
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
-        // Movie
+        //Movie
         SizedBox(
           height: 200,
           child: ListView.builder(
@@ -80,10 +80,9 @@ class _HomeScreenState extends State<HomeScreen> {
               final Movie movie = movies[index];
               return GestureDetector(
                   onTap: () => Navigator.push(
-                    context, 
-                    MaterialPageRoute(
-                      builder:(context) => DetailScreen(movie: movie))
-                  ),
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailScreen(movie: movie))),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
